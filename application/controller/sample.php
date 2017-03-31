@@ -12,15 +12,21 @@ class Sample extends Controller
 	{
 		echo "dsadas";
 	}
+
 	function bla()
 	{
-		$this->view('login');
+		$this->view('signup', null);
 	}
 
 	function signup()
 	{
-		$this->model->tryy();
-		$this->model('users')->insert($data);
+		$data = array(
+			'firstname' => $_POST['firstname'],
+			'lastname'	=> $_POST['lastname'],
+			'email' => $_POST['email'],
+			'password' => $_POST['password']
+			);
+		$this->model('users')->insert($data); 
 	}
 }
  ?>
